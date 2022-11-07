@@ -15,8 +15,9 @@ import basicVertex from './basic.vertex.glsl';
 import defaultFragment from './shadertoy.fragment.glsl';
 import shadertoyDefault from './shadertoy.default';
 import noise01 from './noise.01';
+import noise02 from './noise.02';
 
-const shader = noise01;
+const shader = noise02;
 
 function resize() {
     renderer.setSize(container.clientWidth, container.clientHeight);
