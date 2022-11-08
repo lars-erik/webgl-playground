@@ -4,8 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --mode development --watch"
+    "build": "vite build",
+    "watch": "vite"
   },
   "author": "",
   "license": "ISC",
