@@ -119,6 +119,13 @@ void main () {
 
     vec3 color = vec3(n*.78, n*.85, n*.997);
     
+    float dist = sqrt(uv.x*uv.x+uv.y*uv.y);
+
+    if (dist < (snoise(vec3(uv, time*.2))+1.) * 2.0 && color.b > .3) {
+      color.r *= 1.2;
+      color.b *= min(1., dist/4.);
+    }
+
     if (n > 1.) {
       color = vec3(0, 1, 0);
     } else if (n < 0.) {
