@@ -17,7 +17,7 @@ const container = document.querySelector("#shader");
 const reqShader = (location.hash || "#").substring(1);
 
 const current = {
-    shader: shaders[reqShader] ? reqShader : 'noise03'
+    shader: shaders[reqShader] ? reqShader : 'noise03b'
 };
 
 const defaultUniforms = {
