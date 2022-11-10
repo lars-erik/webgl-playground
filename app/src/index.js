@@ -14,9 +14,10 @@ import { GUI } from 'dat.gui';
 import shaders from './shaders';
 
 const container = document.querySelector("#shader");
+const reqShader = (location.hash || "#").substring(1);
 
 const current = {
-    shader: 'noise03'
+    shader: shaders[reqShader] ? reqShader : 'noise03'
 };
 
 const defaultUniforms = {
