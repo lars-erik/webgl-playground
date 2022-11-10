@@ -6,11 +6,11 @@ const materialOptions = {
     fragmentShader: fragment,
     uniforms: {
         u_time: { value: 0 },
-        u_speed: { value: 0.3 },
-        scale: { value: 5.2 },
-        repeats: { value: 1 },
-        octaves: { value: 4 },
-        turbulence: { value: false }
+        u_speed: { value: 1.7 },
+        scale: { value: 5.7 },
+        repeats: { value: 2 },
+        octaves: { value: 6 },
+        turbulence: { value: true }
     }
 }
 

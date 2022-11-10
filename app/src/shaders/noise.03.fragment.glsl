@@ -99,6 +99,7 @@ float fbm (in vec3 st) {
 void main () {
     vec2 uv = (fragCoord-.5) * iResolution.xy/iResolution.y*2.;
     float time = u_time * u_speed;
+    float dist = sqrt(uv.x*uv.x+uv.y*uv.y);
 
     uv *= scale;
 
@@ -108,7 +109,7 @@ void main () {
     
     for (int i = 0; i<repeats; i++) {
       float ang = n * 3.141592;
-      n = snoise(vec3(vec2(uv.x + cos(ang), uv.y + sin(ang))*n, time*.2));
+      n = fbm(vec3(uv + vec2(cos(ang), sin(ang)) * n, time*.2));
     }
 
     if (turbulence) {
@@ -117,13 +118,11 @@ void main () {
         n = n*.5 + .5;
     }
 
-    vec3 color = vec3(n*.78, n*.85, n*.997);
+    vec3 color = vec3(n*.58, n*.65, n*.997);
     
-    float dist = sqrt(uv.x*uv.x+uv.y*uv.y);
-
-    if (dist < (snoise(vec3(uv, time*.2))+1.) * 2.0 && color.b > .3) {
-      color.r *= 1.2;
-      color.b *= min(1., dist/4.);
+    if (dist < (snoise(vec3(uv * vec2(1., 2.5), time*.2))+1.) * .5 && color.b > .3) {
+      color.r *= 1. + (.9 - dist);
+      color.b *= dist;
     }
 
     if (n > 1.) {
