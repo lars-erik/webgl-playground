@@ -16,7 +16,7 @@ import shaders from './shaders';
 const container = document.querySelector("#shader");
 
 const current = {
-    shader: 'noise02'
+    shader: 'noise03'
 };
 
 const defaultUniforms = {
